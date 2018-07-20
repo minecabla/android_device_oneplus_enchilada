@@ -1,5 +1,5 @@
 #
-# Copyright (C) 2018 The LineageOS Project
+# Copyright (C) 2008 The Android Open Source Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -14,16 +14,12 @@
 # limitations under the License.
 #
 
-# Inherit from oneplus sdm845-common
--include device/oneplus/sdm845-common/BoardConfigCommon.mk
+# This file is executed by build/envsetup.sh, and can use anything
+# defined in envsetup.sh.
+#
+# In particular, you can add lunch options with the add_lunch_combo
+# function: add_lunch_combo generic-eng
 
-DEVICE_PATH := device/oneplus/enchilada
-
-# Bluetooth
-BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := $(DEVICE_PATH)/bluetooth/include
-
-# Kernel
-TARGET_KERNEL_CONFIG := enchilada_defconfig
-
-# inherit from the proprietary version
-#-include vendor/oneplus/enchilada/BoardConfigVendor.mk
+add_lunch_combo enchilada-user
+add_lunch_combo enchilada-userdebug
+add_lunch_combo enchilada-eng
